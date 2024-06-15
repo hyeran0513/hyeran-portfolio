@@ -41,7 +41,7 @@
  
        <div class="info">
          <div class="info-title">
-           <span class="txt">상 / 자격증</span>
+           <span class="txt">수상 / 자격증</span>
          </div>
  
          <div class="info-box">
