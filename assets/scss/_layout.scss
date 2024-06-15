@@ -1,0 +1,53 @@
+.layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #FFF;
+
+  .content {
+    flex: 1;
+
+    .floating {
+      position: fixed;
+      right: 30px;
+      bottom: 52px;
+      z-index: 15;
+    }
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #FFF;
+    z-index: 50;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1200px;
+      height: 80px;
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .btn-back {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #d7d7d7;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  footer {
+    flex-shrink: 0;
+    height: 100px;
+  }
+}

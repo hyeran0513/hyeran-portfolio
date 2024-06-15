@@ -1,0 +1,162 @@
+@import 'mixins';
+
+/* 버튼 */
+button {
+  font-family: inherit;
+  font-size: 100%;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+[class*="btn-s-"] {
+  @include btn-base;
+  @include btn-size(66px, 40px);
+  font-size: 16px;
+}
+
+[class*="btn-m-"] {
+  @include btn-base;
+  @include btn-size(70px, 42px);
+}
+
+[class*="btn-l-"] {
+  @include btn-base;
+  @include btn-size(70px, 44px);
+  margin-right: 10px;
+}
+
+[class*="btn-f-"] {
+  @include btn-base;
+  @include btn-size(100%, 52px);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-s,
+.btn-m,
+.btn-l,
+.btn-f {
+  &-line {
+    &-main {
+      @include btn-type(var(--primary-color), white, darken(#FFC052, 10%), darken(#FFC052, 10%));
+    }
+  }
+
+  &-fill {
+    &-main {
+      @include btn-type-fill(var(--primary-color), white, darken(#FFC052, 10%));
+    }
+  }
+}
+/* END: 버튼 */
+
+/* 스택 박스 */
+.stack-icon-box {
+  display: inline-flex;
+  flex-direction: column;
+
+  &-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .icon {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: #F9F9F9;
+    border: 1px solid #ECECEC;
+    border-radius: 6px;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: '';
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      background: url('/assets/images/icon-stack.png') no-repeat left/auto 100%;
+    }
+
+    
+    &.css {
+      &:before {
+        background-position-x: calc(100% / 10);
+      }
+    }
+
+    &.jquery {
+      &:before {
+        background-position-x: calc((100% / 10) * 2);
+      }
+    }
+
+    &.nuxt {
+      &:before {
+        background-position-x: calc((100% / 10) * 3);
+      }
+    }
+
+    &.vue {
+      &:before {
+        background-position-x: calc((100% / 10) * 4);
+      }
+    }
+
+    &.sass {
+      &:before {
+        background-position-x: calc((100% / 10) * 5);
+      }
+    }
+
+    &.php {
+      &:before {
+        background-position-x: calc((100% / 10) * 6);
+      }
+    }
+
+    &.mysql {
+      &:before {
+        background-position-x: calc((100% / 10) * 7);
+      }
+    }
+
+    &.figma {
+      &:before {
+        background-position-x: calc((100% / 10) * 8);
+      }
+    }
+
+    &.github {
+      &:before {
+        background-position-x: calc((100% / 10) * 9);
+      }
+    }
+
+    &.gitlab {
+      &:before {
+        background-position-x: right;
+      }
+    }
+  }
+
+  .type {
+    text-align: center;
+    color: var(--colorText5);
+    font-size: 14px;
+  }
+
+  .percent {
+    margin-top: 2px;
+    padding: 2px 4px;
+    font-weight: bold;
+    text-align: center;
+    background: #f8f8f8;
+    border-radius: 2px;
+    font-size: 14px;
+  }
+}

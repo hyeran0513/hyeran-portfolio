@@ -1,0 +1,85 @@
+// 페이드 인/아웃 애니메이션
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 확대/축소 애니메이션
+.scale-up-enter-active,
+.scale-up-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.scale-up-enter-from {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.scale-up-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+// 회전 인/아웃 애니메이션
+.rotate-enter-active,
+.rotate-leave-active {
+  transition: transform 0.3s;
+}
+
+.rotate-enter-from {
+  transform: rotate(-45deg);
+}
+
+.rotate-leave-to {
+  transform: rotate(45deg);
+}
+
+// 슬라이드 업/다운 애니메이션
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+// 바운스 인/아웃 애니메이션
+.bounce-enter-active,
+.bounce-leave-active {
+  transition: transform 0.5s;
+}
+
+.bounce-enter-from {
+  transform: scale(0.5);
+}
+
+.bounce-leave-to {
+  transform: scale(0.5);
+}

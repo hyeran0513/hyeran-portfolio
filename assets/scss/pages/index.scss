@@ -1,0 +1,10 @@
+.main {
+  &-item {
+    margin: 0 auto;
+    max-width: 1200px;
+
+    &.outline-view {
+      max-width: 100%;
+    }
+  }
+}

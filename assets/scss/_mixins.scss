@@ -1,0 +1,155 @@
+// 미디어 쿼리
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'phone' {
+    @media (max-width: 600px) { @content; }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: 900px) { @content; }
+  } @else if $breakpoint == 'desktop' {
+    @media (min-width: 901px) { @content; }
+  }
+}
+
+// Flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// grid
+@mixin grid($columns, $gap: 20px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// 글꼴 크기 및 반응형 타이포그래피
+@mixin font-size($size) {
+  font-size: $size;
+
+  @media (max-width: 1200px) {
+    font-size: $size * 0.9;
+  }
+
+  @media (max-width: 992px) {
+    font-size: $size * 0.8;
+  }
+
+  @media (max-width: 768px) {
+    font-size: $size * 0.7;
+  }
+
+  @media (max-width: 576px) {
+    font-size: $size * 0.6;
+  }
+}
+
+// transition
+@mixin transition {
+  transition: all ease .2s;
+}
+
+// 말줄임
+@mixin ellipsis {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 말줄임 여러 줄
+@mixin ellipsis-multi($line-clamp: 2) {
+  display: block;
+  display: -webkit-box;
+  display: -ms-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-clamp;
+  overflow: hidden;
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+}
+
+@mixin btn-base {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 0 20px;
+  margin-right: 5px;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.2s;
+  }
+
+  &:hover,
+  &:active,
+  &.is-active {
+    &:before {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+
+  &:disabled {
+    border: 1px solid #999;
+    background: #f8f8f8;
+    cursor: auto;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@mixin btn-size($min-width, $height) {
+  min-width: $min-width;
+  height: $height;
+  line-height: $height - 2px;
+}
+
+@mixin btn-type($color, $bg, $hoverColor: $color, $hoverBg: $bg) {
+  color: $color;
+  background-color: $bg;
+  border: 1px solid $color;
+
+  &:before {
+    background-color: $hoverBg;
+  }
+
+  &:hover,
+  &.is-active {
+    color: $hoverColor;
+    border-color: $hoverColor;
+  }
+}
+
+@mixin btn-type-fill($bg, $color, $hoverBg: $bg) {
+  background-color: $bg;
+  color: $color;
+
+  &:before {
+    background-color: $hoverBg;
+  }
+}
