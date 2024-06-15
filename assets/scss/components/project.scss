@@ -31,27 +31,61 @@
         }
       }
 
-      .info {
+      .detail {
         position: relative;
         padding: 30px;
         height: 50%;
         overflow-y: auto;
 
-        .title {
-          font-size: 24px;
-          font-weight: bold;
+        &::-webkit-scrollbar {
+          width: 6px;
+          cursor: pointer;
         }
 
-        .date {
-          color: var(--colorText5);
+        &::-webkit-scrollbar-thumb {
+          border-radius: 20px;
+          background-color: rgba(0, 0, 0, .23);
         }
 
-        .desc {
-          margin-top: 20px;
+        &::-webkit-scrollbar-track,
+        &::-webkit-scrollbar-track-piece {
+          background-color: rgba(0, 0, 0, 0);
         }
 
-        .review {
-          margin-top: 20px;
+        .top {
+          .title {
+            font-size: 24px;
+            font-weight: bold;
+          }
+
+          .flex-box {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+            .date,
+            .type {
+              color: var(--colorText5);
+            }
+          }
+        }
+
+        .info {
+          &:not(:first-child) {
+            margin-top: 20px;
+          }
+
+          & > dt {
+            margin-bottom: 4px;
+
+            .info-txt-label {
+              display: inline-block;
+              padding: 2px 4px;
+              border: 1px solid #d7d7d7;
+              border-radius: 4px;
+              font-size: 14px;
+            }
+          }
         }
       }
     }
