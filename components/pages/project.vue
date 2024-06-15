@@ -19,6 +19,19 @@
           </div>
 
           <dl class="info">
+            <dt><label class="info-txt-label">사용 기술</label></dt> 
+            <dd>
+              <div class="stack-icon-box-wrap">
+               <div class="stack-icon-box" v-for="(stack, stackIdx) in item?.stack" :key="stackIdx">
+                 <div class="icon" :class="stack.icon"></div>
+                 <div class="type">{{ stack.type }}</div>
+                 <div class="percent">{{ stack.percent }}%</div>
+               </div>
+             </div>
+            </dd>
+          </dl>
+
+          <dl class="info">
             <dt><label class="info-txt-label">소개</label></dt> 
             <dd>{{ item?.description }}</dd>
           </dl>
