@@ -11,9 +11,29 @@ const config = {
   ],
   theme: {
     extend: {
+      screens: {
+        web: "1280px",
+        tablet: "1024px",
+      },
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
       },
+      colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        background: {
+          primary: "var(--background-primary)",
+          secondary: "var(--background-secondary)",
+        },
+        border: {
+          primary: "var(--border-primary)",
+        },
+        text: {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          tertiary: "var(--text-tertiary)",
+        }
+      }
     },
   },
   plugins: [
