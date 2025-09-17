@@ -49,10 +49,24 @@ const config = {
     tailwindcssAnimate,
     plugin(function ({ addUtilities }) {
       addUtilities({
-        ".hero": {
+        ".hero-1": {
           fontFamily: "var(--font-pretendard)",
           fontWeight: "800",
           fontSize: "90px",
+          lineHeight: "150%",
+          letterSpacing: "0%",
+        },
+        ".hero-2": {
+          fontFamily: "var(--font-pretendard)",
+          fontWeight: "800",
+          fontSize: "60px",
+          lineHeight: "150%",
+          letterSpacing: "0%",
+        },
+        ".hero-3": {
+          fontFamily: "var(--font-pretendard)",
+          fontWeight: "800",
+          fontSize: "40px",
           lineHeight: "150%",
           letterSpacing: "0%",
         },

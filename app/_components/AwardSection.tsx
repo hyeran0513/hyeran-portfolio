@@ -4,11 +4,11 @@ import { cn } from '@/lib/utils';
 const AwardSection = () => {
   return (
     <div className="bg-background-secondary">
-      <div className="max-w-[1200px] mx-auto p-[64px] flex flex-col gap-[48px]">
+      <div className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]">
         {/* 제목 */}
-        <h2 className="heading-2">상장/자격증</h2>
+        <h2 className="tablet:heading-2 heading-3">상장/자격증</h2>
 
-        <div className="grid grid-cols-4 gap-[24px]">
+        <div className="grid tablet:grid-cols-4 grid-cols-1 gap-[24px]">
           {AWARDS.map((item) => (
             <div
               key={`${item.title}-${item.period}`}

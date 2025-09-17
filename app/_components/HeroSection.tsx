@@ -36,13 +36,13 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="bg-primary h-[630px]">
+    <div className="bg-primary tablet:h-[630px] h-[500px]">
       <div
         ref={sectionRef}
         className="max-w-[1200px] mx-auto h-full relative flex justify-center pt-[94px] overflow-hidden"
       >
         {/* 텍스트 */}
-        <div className="text-white hero text-center relative z-20">
+        <div className="text-white web:hero-1 tablet:hero-2 hero-3 text-center relative z-20">
           김혜란 프론트엔드 <br /> 포트폴리오
         </div>
 
@@ -77,7 +77,7 @@ const HeroSection = () => {
         </div>
 
         {/* 별 */}
-        <div className="absolute right-[120px] top-[140px] w-[40px] h-[40px] animate-twinkle z-10 pointer-events-none">
+        <div className="absolute tablet:right-[120px] right-[16px] top-[140px] w-[40px] h-[40px] animate-twinkle z-10 pointer-events-none">
           <Image
             src="/images/deco/deco_outline_white_star.png"
             alt="outline white star"
@@ -97,7 +97,7 @@ const HeroSection = () => {
         </div>
 
         {/* 별 */}
-        <div className="absolute left-[80px] top-[200px] w-[32px] h-[32px] animate-twinkle [animation-delay:1.1s] z-10 pointer-events-none">
+        <div className="absolute tablet:left-[80px] left-[16px] top-[200px] w-[32px] h-[32px] animate-twinkle [animation-delay:1.1s] z-10 pointer-events-none">
           <Image
             src="/images/deco/deco_yellow_star.png"
             alt="yellow star"
