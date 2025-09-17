@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 김혜란 포트폴리오
 
-## Getting Started
+김혜란의 프론트엔드 개발자 포트폴리오 웹사이트입니다. <br />
+Next.js 15와 TypeScript를 기반으로 제작되었으며, 다양한 프로젝트 경험과 기술 스택을 보여줍니다.
 
-First, run the development server:
+![Animation2](https://github.com/user-attachments/assets/cf6c5a94-388b-451a-8532-da4ad4e22e62)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 주요 기능
+
+### 📱 반응형 디자인
+- 모바일, 태블릿, 데스크톱 모든 기기에서 최적화된 사용자 경험
+- Tailwind CSS를 활용한 일관된 디자인 시스템
+
+### 🎨 인터랙티브 UI/UX
+- GSAP을 활용한 부드러운 애니메이션 효과
+- 커스텀 커서 (당근 커서) 구현
+- 스크롤 기반 인터랙션
+
+### 📋 포트폴리오 섹션
+- **프로젝트 소개**: 주요 프로젝트들 (여기G, 레저투유, 이에이트, M.A.P 등...)
+- **기술 스택**: Next.js, Vue.js, TypeScript, Tailwind CSS 등
+- **활동 내역**: 개발 관련 활동 및 경험
+- **수상/자격증**: 관련 자격증 및 수상 경력
+
+ ## 🛠️ 기술 스택
+
+### Frontend
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: GSAP
+- **Icons**: Lucide React
+
+### Development Tools
+- **Package Manager**: Yarn
+- **Linting**: ESLint
+- **Formatting**: Prettier
+- **Version Control**: Git
+
+## 📁 폴더 구조
+
+```
+hyeran-portfolio/
+├── app/                          # Next.js App Router
+│   ├── _components/              # 페이지별 컴포넌트
+│   │   ├── ActicitySection.tsx   # 활동 섹션
+│   │   ├── AwardSection.tsx      # 수상/자격증 섹션
+│   │   ├── EyeTracking.tsx       # 시선 추적 컴포넌트
+│   │   ├── HeroSection.tsx       # 히어로 섹션
+│   │   ├── InfoRow.tsx           # 정보 행 컴포넌트
+│   │   ├── PreviewGallery.tsx    # 미리보기 갤러리
+│   │   ├── ProjectModal.tsx      # 프로젝트 모달
+│   │   ├── ProjectSection.tsx    # 프로젝트 섹션
+│   │   └── StackSection.tsx      # 기술 스택 섹션
+│   ├── fonts/                    # 커스텀 폰트 (Pretendard)
+│   ├── globals.css               # 전역 스타일
+│   ├── layout.tsx                # 루트 레이아웃
+│   └── page.tsx                  # 메인 페이지
+├── components/                   # 재사용 가능한 컴포넌트
+│   ├── shared/                   # 공통 컴포넌트
+│   │   ├── CarrotCursor.tsx      # 커스텀 커서
+│   │   ├── CircularProgress.tsx  # 원형 프로그레스
+│   │   ├── FallbackImage.tsx     # 이미지 폴백
+│   │   ├── Footer.tsx            # 푸터
+│   │   ├── TopButton.tsx         # 맨 위로 버튼
+│   │   └── header/               # 헤더 관련
+│   │       ├── HamburgerButton.tsx
+│   │       ├── index.tsx
+│   │       ├── MobileSidebar.tsx
+│   │       └── NavigationLinks.tsx
+│   └── ui/                       # UI 컴포넌트
+│       ├── modal.tsx             # 모달 컴포넌트
+│       └── spinner.tsx           # 스피너 컴포넌트
+├── constants/                    # 상수 데이터
+│   ├── activity.ts               # 활동 데이터
+│   ├── award.ts                  # 수상/자격증 데이터
+│   ├── project.ts                # 프로젝트 데이터
+│   ├── service.ts                # 서비스 데이터
+│   └── stack.ts                  # 기술 스택 데이터
+├── lib/                          # 유틸리티 함수
+│   └── utils.ts                  # 공통 유틸리티
+├── public/                       # 정적 파일
+│   ├── images/                   # 이미지 리소스
+│   │   ├── company/              # 회사 로고
+│   │   ├── deco/                 # 장식 이미지
+│   │   ├── portfolio/            # 프로젝트 이미지
+│   │   ├── stack/                # 기술 스택 로고
+│   │   └── thumbnail/            # 썸네일 이미지
+│   └── svg/                      # SVG 아이콘
+├── package.json                  # 프로젝트 의존성
+├── tailwind.config.js            # Tailwind CSS 설정
+├── tsconfig.json                 # TypeScript 설정
+└── next.config.ts                # Next.js 설정
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 배포
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 배포 URL: https://hyeran-portfolio-nine.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<img width="450" height="450" alt="image" src="https://github.com/user-attachments/assets/693700ed-2161-46cb-9f0e-7306b3de6421" />
 
-## Learn More
+## 🎬 화면 전체 미리보기
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/71460b35-2ec2-408f-a0dc-613c2df500ca" />
