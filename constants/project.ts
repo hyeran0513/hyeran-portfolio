@@ -93,6 +93,8 @@ export const PROJECT_L2U = {
   images: [
     { src: '/images/portfolio/l2u/l2u_main.png', label: '메인 페이지' },
     { src: '/images/portfolio/l2u/l2u_highend.png', label: '하이엔드 컬렉션' },
+    { src: '/images/portfolio/l2u/l2u_membership.png', label: '멤버십 가입' },
+    { src: '/images/portfolio/l2u/l2u_membership_payment.png', label: '멤버십 결제 화면' },
     { src: '/images/portfolio/l2u/l2u_room.png', label: '객실 페이지' },
     { src: '/images/portfolio/l2u/l2u_detail.png', label: '숙소 상세' },
     { src: '/images/portfolio/l2u/l2u_history.png', label: '예약 내역' },
