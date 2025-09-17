@@ -1,113 +1,10 @@
-'use client';
-
-import Image from 'next/image';
-import { useRef, useState, useEffect } from 'react';
-import { importScrollTrigger } from '@/lib/utils';
 import FallbackImage from '@/components/shared/FallbackImage';
+import EyeTracking from './EyeTracking';
 
 const HeroSection = () => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [pupilOffset, setPupilOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-
-  // 마우스 움직일 때
-  useEffect(() => {
-    const handleWindowMouseMove = (e: MouseEvent) => {
-      const container = sectionRef.current;
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const dx = e.clientX - centerX;
-      const dy = e.clientY - centerY;
-      const distance = Math.hypot(dx, dy) || 1;
-      const maxOffset = 8;
-      setPupilOffset({ x: (dx / distance) * maxOffset, y: (dy / distance) * maxOffset });
-    };
-
-    // 마우스 떠날 때
-    const handleWindowMouseLeave = () => {
-      setPupilOffset({ x: 0, y: 0 });
-    };
-
-    window.addEventListener('mousemove', handleWindowMouseMove);
-    window.addEventListener('mouseleave', handleWindowMouseLeave);
-    return () => {
-      window.removeEventListener('mousemove', handleWindowMouseMove);
-      window.removeEventListener('mouseleave', handleWindowMouseLeave);
-    };
-  }, []);
-
-  useEffect(() => {
-    let ctx: any;
-    (async () => {
-      const mod = await importScrollTrigger();
-      if (!mod || !sectionRef.current) return;
-      const { gsap } = mod;
-      ctx = gsap.context(() => {
-        const triggerTarget = sectionRef.current!;
-        gsap.from('.hero-title', {
-          scrollTrigger: {
-            trigger: triggerTarget,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-          y: 30,
-          autoAlpha: 0,
-          duration: 0.6,
-          ease: 'power3.out',
-        });
-
-        gsap.from('.hero-bg', {
-          scrollTrigger: {
-            trigger: triggerTarget,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-          scale: 0.9,
-          autoAlpha: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-        });
-
-        gsap.from('.hero-character', {
-          scrollTrigger: {
-            trigger: triggerTarget,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-          y: 40,
-          autoAlpha: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-        });
-
-        gsap.from('.hero-star', {
-          scrollTrigger: {
-            trigger: triggerTarget,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-          y: -10,
-          autoAlpha: 0,
-          duration: 0.4,
-          stagger: 0.1,
-          ease: 'power3.out',
-        });
-      }, sectionRef);
-    })();
-    return () => ctx && ctx.revert();
-  }, []);
-
   return (
     <section className="bg-primary tablet:h-[630px] h-[500px]">
-      <div
-        ref={sectionRef}
-        className="max-w-[1200px] mx-auto h-full relative flex justify-center pt-[94px] overflow-hidden"
-      >
+      <div className="max-w-[1200px] mx-auto h-full relative flex justify-center pt-[94px] overflow-hidden">
         {/* 텍스트 */}
         <div className="hero-title text-white web:hero-1 tablet:hero-2 hero-3 text-center relative z-20">
           김혜란 프론트엔드 <br /> 포트폴리오
@@ -125,27 +22,12 @@ const HeroSection = () => {
             alt="캐릭터"
             fill
             className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
 
           {/* 눈동자 */}
-          <div className="pointer-events-none">
-            <div className="absolute left-1/2 top-[113.35px] -translate-x-[60px] w-[34px] h-[34px] rounded-full z-20">
-              <div
-                className="absolute left-1/2 top-1/2 w-[25px] h-[29px] rounded-full bg-black"
-                style={{
-                  transform: `translate(calc(-50% + ${pupilOffset.x}px), calc(-50% + ${pupilOffset.y}px))`,
-                }}
-              />
-            </div>
-            <div className="absolute left-1/2 top-[113.35px] translate-x-[40px] w-[34px] h-[34px] rounded-full z-20">
-              <div
-                className="absolute left-1/2 top-1/2 w-[25px] h-[29px] rounded-full bg-black"
-                style={{
-                  transform: `translate(calc(-50% + ${pupilOffset.x}px), calc(-50% + ${pupilOffset.y}px))`,
-                }}
-              />
-            </div>
-          </div>
+          <EyeTracking />
         </div>
 
         {/* 별 */}
@@ -155,6 +37,7 @@ const HeroSection = () => {
             alt="outline white star"
             fill
             className="object-contain"
+            loading="lazy"
           />
         </div>
 
@@ -165,6 +48,7 @@ const HeroSection = () => {
             alt="white star"
             fill
             className="object-contain"
+            loading="lazy"
           />
         </div>
 
@@ -175,6 +59,7 @@ const HeroSection = () => {
             alt="yellow star"
             fill
             className="object-contain"
+            loading="lazy"
           />
         </div>
       </div>

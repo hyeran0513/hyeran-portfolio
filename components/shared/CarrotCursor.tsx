@@ -1,13 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import Image from 'next/image';
 import FallbackImage from '@/components/shared/FallbackImage';
 
 const CarrotCursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
-  const tlRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
     const node = cursorRef.current;
@@ -17,23 +14,21 @@ const CarrotCursor = () => {
     const move = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;
-      tlRef.current = gsap.to(node, {
-        x,
-        y,
-        duration: 0.15,
-        ease: 'power3.out',
-        overwrite: true,
-      });
+      node.style.transform = `translate(${x}px, ${y}px)`;
     };
 
     // 커서 표시
-    const show = () => gsap.to(node, { autoAlpha: 1, duration: 0.2 });
+    const show = () => {
+      node.style.opacity = '1';
+    };
 
     // 커서 숨기기
-    const hide = () => gsap.to(node, { autoAlpha: 0, duration: 0.2 });
+    const hide = () => {
+      node.style.opacity = '0';
+    };
 
     // 커서 이동 이벤트 등록
-    window.addEventListener('mousemove', move);
+    window.addEventListener('mousemove', move, { passive: true });
     window.addEventListener('mouseenter', show);
     window.addEventListener('mouseleave', hide);
 
@@ -47,7 +42,6 @@ const CarrotCursor = () => {
       window.removeEventListener('mousemove', move);
       window.removeEventListener('mouseenter', show);
       window.removeEventListener('mouseleave', hide);
-      tlRef.current?.kill();
       html.style.cursor = prevCursor;
     };
   }, []);

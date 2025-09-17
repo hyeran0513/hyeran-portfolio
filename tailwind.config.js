@@ -49,6 +49,44 @@ const config = {
     tailwindcssAnimate,
     plugin(function ({ addUtilities }) {
       addUtilities({
+        ".will-change-transform": {
+          "will-change": "transform",
+        },
+        ".will-change-auto": {
+          "will-change": "auto",
+        },
+        ".gpu-accelerated": {
+          "transform": "translateZ(0)",
+          "backface-visibility": "hidden",
+          "perspective": "1000px",
+        },
+        ".contain-layout": {
+          "contain": "layout",
+        },
+        ".contain-paint": {
+          "contain": "paint",
+        },
+        ".contain-strict": {
+          "contain": "strict",
+        },
+        ".hero-title": {
+          "font-display": "swap",
+          "contain": "layout style paint",
+          "will-change": "auto",
+          "transform": "translateZ(0)",
+          "backface-visibility": "hidden",
+        },
+        ".hero-character": {
+          "contain": "layout style paint",
+          "will-change": "transform",
+        },
+        ".hero-bg": {
+          "contain": "layout style paint",
+        },
+        ".hero-star": {
+          "contain": "layout style paint",
+          "will-change": "transform",
+        },
         ".hero-1": {
           fontFamily: "var(--font-pretendard)",
           fontWeight: "800",

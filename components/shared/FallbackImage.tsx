@@ -7,6 +7,7 @@ import Spinner from '@/components/ui/spinner';
 type FallbackImageProps = Omit<ImageProps, 'src'> & {
   src: string; // 이미지 소스
   fallbackSrc?: string; // 폴백 이미지 소스
+  loading?: 'lazy' | 'eager';
 };
 
 export default function FallbackImage({
@@ -15,15 +16,17 @@ export default function FallbackImage({
   alt,
   className,
   fill,
+  priority = false,
+  loading = 'eager',
   ...rest
 }: FallbackImageProps) {
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const actualSrc = useMemo(() => (error ? fallbackSrc : src), [error, fallbackSrc, src]);
 
   return (
     <>
-      {loading && !error && (
+      {isLoading && !error && !priority && (
         <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse flex items-center justify-center z-10">
           <Spinner size="md" />
         </div>
@@ -34,9 +37,11 @@ export default function FallbackImage({
         src={actualSrc}
         className={className}
         fill={fill}
+        priority={priority}
+        loading={loading}
         onError={() => setError(true)}
-        onLoad={() => setLoading(false)}
-        onLoadingComplete={() => setLoading(false)}
+        onLoad={() => setIsLoading(false)}
+        onLoadingComplete={() => setIsLoading(false)}
       />
     </>
   );

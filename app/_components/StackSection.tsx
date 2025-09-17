@@ -10,7 +10,7 @@ const StackSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let ctx: any;
+    let ctx: { revert: () => void } | null = null;
     (async () => {
       const mod = await importScrollTrigger();
       if (!mod || !sectionRef.current) return;
@@ -43,7 +43,9 @@ const StackSection = () => {
         });
       }, sectionRef);
     })();
-    return () => ctx && ctx.revert();
+    return () => {
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   return (
