@@ -107,8 +107,8 @@ export default function Modal({
         tabIndex={-1}
         className={
           fullScreen
-            ? 'bg-black text-white rounded-none shadow-none w-screen h-screen max-w-none max-h-none overflow-hidden flex flex-col'
-            : 'bg-white dark:bg-background-primary text-text-primary rounded-[12px] shadow-xl w-[92vw] tablet:w-[800px] max-w-[1000px] max-h-[86vh] overflow-hidden flex flex-col'
+            ? 'bg-black text-white rounded-none shadow-none w-screen h-screen max-w-none max-h-none overflow-hidden flex flex-col outline-none focus:outline-none focus-visible:outline-none'
+            : 'bg-white dark:bg-background-primary text-text-primary rounded-[12px] shadow-xl w-[92vw] tablet:w-[800px] max-w-[1000px] max-h-[86vh] overflow-hidden flex flex-col outline-none focus:outline-none focus-visible:outline-none'
         }
         onMouseDown={(e) => e.stopPropagation()}
       >

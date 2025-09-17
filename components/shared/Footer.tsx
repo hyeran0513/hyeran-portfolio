@@ -3,7 +3,7 @@ import { GITHUB_URL, EMAIL } from '@/constants/service';
 const Footer = () => {
   return (
     <footer className="border-t border-border-primary h-[118px]">
-      <div className="max-w-[1200px] mx-auto web:px-[64px] tablet:px-[32px] px-[16px] h-full flex justify-between items-center">
+      <div className="max-w-[1200px] mx-auto web:px-[64px] tablet:px-[32px] px-[16px] h-full flex flex-col tablet:flex-row tablet:justify-between justify-center items-center tablet:gap-[0px] gap-[16px]">
         {/* 저작권 */}
         <p className="body-3">© 2025 김혜란. All rights reserved.</p>
 

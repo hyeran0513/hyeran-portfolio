@@ -47,7 +47,7 @@ const StackSection = () => {
   }, []);
 
   return (
-    <div className="bg-background-secondary">
+    <section id="stack" className="bg-background-secondary">
       <div
         ref={sectionRef}
         className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
@@ -79,7 +79,7 @@ const StackSection = () => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

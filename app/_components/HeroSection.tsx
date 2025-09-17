@@ -102,7 +102,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="bg-primary tablet:h-[630px] h-[500px]">
+    <section className="bg-primary tablet:h-[630px] h-[500px]">
       <div
         ref={sectionRef}
         className="max-w-[1200px] mx-auto h-full relative flex justify-center pt-[94px] overflow-hidden"
@@ -172,7 +172,7 @@ const HeroSection = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -51,7 +51,8 @@ const ProjectSection = () => {
   }, []);
 
   return (
-    <div
+    <section
+      id="projects"
       ref={sectionRef}
       className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
     >
@@ -94,7 +95,7 @@ const ProjectSection = () => {
 
       {/* 프로젝트 모달 */}
       <ProjectModal project={selected} open={!!selected} onClose={() => setOpenKey(null)} />
-    </div>
+    </section>
   );
 };
 

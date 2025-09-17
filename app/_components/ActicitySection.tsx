@@ -46,7 +46,8 @@ const ActicitySection = () => {
   }, []);
 
   return (
-    <div
+    <section
+      id="activities"
       ref={sectionRef}
       className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
     >
@@ -77,7 +78,7 @@ const ActicitySection = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
