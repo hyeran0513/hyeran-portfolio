@@ -1,0 +1,113 @@
+'use client';
+
+import Image from 'next/image';
+import { useRef, useState, useEffect } from 'react';
+
+const HeroSection = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [pupilOffset, setPupilOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // 마우스 움직일 때
+  useEffect(() => {
+    const handleWindowMouseMove = (e: MouseEvent) => {
+      const container = sectionRef.current;
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const distance = Math.hypot(dx, dy) || 1;
+      const maxOffset = 8;
+      setPupilOffset({ x: (dx / distance) * maxOffset, y: (dy / distance) * maxOffset });
+    };
+
+    // 마우스 떠날 때
+    const handleWindowMouseLeave = () => {
+      setPupilOffset({ x: 0, y: 0 });
+    };
+
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    window.addEventListener('mouseleave', handleWindowMouseLeave);
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+      window.removeEventListener('mouseleave', handleWindowMouseLeave);
+    };
+  }, []);
+
+  return (
+    <div className="bg-primary h-[630px]">
+      <div
+        ref={sectionRef}
+        className="max-w-[1200px] mx-auto h-full relative flex justify-center pt-[94px] overflow-hidden"
+      >
+        {/* 텍스트 */}
+        <div className="text-white hero text-center relative z-20">
+          김혜란 프론트엔드 <br /> 포트폴리오
+        </div>
+
+        {/* 캐릭터 배경 */}
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-[340px] w-[756px] h-[756px] rounded-full bg-[#828BD6] z-0 pointer-events-none">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[524px] h-[524px] rounded-full bg-[#9AA1DF]"></div>
+        </div>
+
+        <div className="w-[399px] h-[219px] aspect-[399/219] absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+          {/* 캐릭터 */}
+          <Image src="/images/deco/deco_character.png" alt="캐릭터" fill className="object-cover" />
+
+          {/* 눈동자 */}
+          <div className="pointer-events-none">
+            <div className="absolute left-1/2 top-[113.35px] -translate-x-[60px] w-[34px] h-[34px] rounded-full bg-white z-20">
+              <div
+                className="absolute left-1/2 top-1/2 w-[25px] h-[29px] rounded-full bg-black"
+                style={{
+                  transform: `translate(calc(-50% + ${pupilOffset.x}px), calc(-50% + ${pupilOffset.y}px))`,
+                }}
+              />
+            </div>
+            <div className="absolute left-1/2 top-[113.35px] translate-x-[40px] w-[34px] h-[34px] rounded-full bg-white z-20">
+              <div
+                className="absolute left-1/2 top-1/2 w-[25px] h-[29px] rounded-full bg-black"
+                style={{
+                  transform: `translate(calc(-50% + ${pupilOffset.x}px), calc(-50% + ${pupilOffset.y}px))`,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* 별 */}
+        <div className="absolute right-[120px] top-[140px] w-[40px] h-[40px] animate-twinkle z-10 pointer-events-none">
+          <Image
+            src="/images/deco/deco_outline_white_star.png"
+            alt="outline white star"
+            fill
+            className="object-contain"
+          />
+        </div>
+
+        {/* 별 */}
+        <div className="absolute right-[60px] top-[220px] w-[28px] h-[28px] animate-twinkle [animation-delay:.6s] z-10 pointer-events-none">
+          <Image
+            src="/images/deco/deco_white_star.png"
+            alt="white star"
+            fill
+            className="object-contain"
+          />
+        </div>
+
+        {/* 별 */}
+        <div className="absolute left-[80px] top-[200px] w-[32px] h-[32px] animate-twinkle [animation-delay:1.1s] z-10 pointer-events-none">
+          <Image
+            src="/images/deco/deco_yellow_star.png"
+            alt="yellow star"
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;

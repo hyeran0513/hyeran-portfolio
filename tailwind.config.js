@@ -11,6 +11,15 @@ const config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        twinkle: {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.12)' },
+        },
+      },
+      animation: {
+        twinkle: 'twinkle 1.8s ease-in-out infinite',
+      },
       screens: {
         web: "1280px",
         tablet: "1024px",
@@ -40,6 +49,13 @@ const config = {
     tailwindcssAnimate,
     plugin(function ({ addUtilities }) {
       addUtilities({
+        ".hero": {
+          fontFamily: "var(--font-pretendard)",
+          fontWeight: "800",
+          fontSize: "90px",
+          lineHeight: "150%",
+          letterSpacing: "0%",
+        },
         ".heading-1": {
           fontFamily: "var(--font-pretendard)",
           fontWeight: "800",
