@@ -5,6 +5,7 @@ import ActicitySection from './_components/ActicitySection';
 import AwardSection from './_components/AwardSection';
 import Footer from '@/components/shared/Footer';
 import Header from '@/components/shared/header';
+import TopButton from '@/components/shared/TopButton';
 
 export default function Home() {
   return (
@@ -31,6 +32,9 @@ export default function Home() {
 
       {/* 푸터 */}
       <Footer />
+
+      {/* 탑 버튼 */}
+      <TopButton />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+
 import { useMemo, useState } from 'react';
 import { PROJECTS } from '@/constants/project';
 import ProjectModal from './ProjectModal';
