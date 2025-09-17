@@ -73,7 +73,12 @@ const ProjectSection = () => {
           >
             {/* 썸네일 */}
             <div className="rounded-[12px] overflow-hidden relative aspect-[325.33/220]">
-              <FallbackImage src={p.thumbnail} alt={p.name} fill className="object-cover" />
+              <FallbackImage
+                src={p.thumbnail}
+                alt={p.name}
+                fill
+                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+              />
             </div>
 
             <div className="px-[12px] flex flex-col gap-[12px]">
