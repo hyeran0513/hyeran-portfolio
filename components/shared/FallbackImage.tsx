@@ -8,6 +8,7 @@ type FallbackImageProps = Omit<ImageProps, 'src'> & {
   src: string; // 이미지 소스
   fallbackSrc?: string; // 폴백 이미지 소스
   loading?: 'lazy' | 'eager';
+  showLoading?: boolean; // 로딩 표시 여부
 };
 
 export default function FallbackImage({
@@ -18,6 +19,7 @@ export default function FallbackImage({
   fill,
   priority = false,
   loading = 'eager',
+  showLoading = true,
   ...rest
 }: FallbackImageProps) {
   const [error, setError] = useState(false);
@@ -26,7 +28,7 @@ export default function FallbackImage({
 
   return (
     <>
-      {isLoading && !error && !priority && (
+      {isLoading && !error && !priority && showLoading && (
         <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse flex items-center justify-center z-10">
           <Spinner size="md" />
         </div>

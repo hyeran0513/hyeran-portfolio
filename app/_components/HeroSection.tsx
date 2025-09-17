@@ -23,6 +23,7 @@ const HeroSection = () => {
             fill
             className="object-cover"
             priority
+            showLoading={false}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
 
@@ -38,6 +39,7 @@ const HeroSection = () => {
             fill
             className="object-contain"
             loading="lazy"
+            showLoading={false}
           />
         </div>
 
@@ -49,6 +51,7 @@ const HeroSection = () => {
             fill
             className="object-contain"
             loading="lazy"
+            showLoading={false}
           />
         </div>
 
@@ -60,6 +63,7 @@ const HeroSection = () => {
             fill
             className="object-contain"
             loading="lazy"
+            showLoading={false}
           />
         </div>
       </div>
