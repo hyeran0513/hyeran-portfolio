@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
+import FallbackImage from '@/components/shared/FallbackImage';
 
 const CarrotCursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -58,7 +59,7 @@ const CarrotCursor = () => {
       className="pointer-events-none fixed left-0 top-0 z-[9999] -translate-x-1/2 -translate-y-1/2"
       style={{ width: 32, height: 32 }}
     >
-      <Image
+      <FallbackImage
         src="/images/deco/carrot.png"
         alt="당근 커서"
         width={32}

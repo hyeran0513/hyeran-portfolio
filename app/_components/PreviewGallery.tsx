@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Modal from '@/components/ui/modal';
+import FallbackImage from '@/components/shared/FallbackImage';
 
 type PreviewImage = {
   src: string; // 이미지
@@ -22,7 +23,12 @@ export default function PreviewGallery({ images }: { images: ReadonlyArray<Previ
           >
             {/* 이미지 */}
             <div className="aspect-[16/10] relative">
-              <Image src={img.src} alt={img.label || '미리보기'} fill className="object-cover" />
+              <FallbackImage
+                src={img.src}
+                alt={img.label || '미리보기'}
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* 라벨 */}
@@ -39,7 +45,12 @@ export default function PreviewGallery({ images }: { images: ReadonlyArray<Previ
       <Modal open={!!zoomSrc} onClose={() => setZoomSrc(null)} fullScreen>
         {zoomSrc ? (
           <div className="relative w-full h-full">
-            <Image src={zoomSrc} alt="확대 이미지" fill className="object-contain bg-black" />
+            <FallbackImage
+              src={zoomSrc}
+              alt="확대 이미지"
+              fill
+              className="object-contain bg-black"
+            />
           </div>
         ) : null}
       </Modal>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import { importScrollTrigger } from '@/lib/utils';
+import FallbackImage from '@/components/shared/FallbackImage';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -119,11 +120,16 @@ const HeroSection = () => {
 
         <div className="hero-character w-[399px] h-[219px] aspect-[399/219] absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
           {/* 캐릭터 */}
-          <Image src="/images/deco/deco_character.png" alt="캐릭터" fill className="object-cover" />
+          <FallbackImage
+            src="/images/deco/deco_character.png"
+            alt="캐릭터"
+            fill
+            className="object-cover"
+          />
 
           {/* 눈동자 */}
           <div className="pointer-events-none">
-            <div className="absolute left-1/2 top-[113.35px] -translate-x-[60px] w-[34px] h-[34px] rounded-full bg-white z-20">
+            <div className="absolute left-1/2 top-[113.35px] -translate-x-[60px] w-[34px] h-[34px] rounded-full z-20">
               <div
                 className="absolute left-1/2 top-1/2 w-[25px] h-[29px] rounded-full bg-black"
                 style={{
@@ -131,7 +137,7 @@ const HeroSection = () => {
                 }}
               />
             </div>
-            <div className="absolute left-1/2 top-[113.35px] translate-x-[40px] w-[34px] h-[34px] rounded-full bg-white z-20">
+            <div className="absolute left-1/2 top-[113.35px] translate-x-[40px] w-[34px] h-[34px] rounded-full z-20">
               <div
                 className="absolute left-1/2 top-1/2 w-[25px] h-[29px] rounded-full bg-black"
                 style={{
@@ -144,7 +150,7 @@ const HeroSection = () => {
 
         {/* 별 */}
         <div className="hero-star absolute tablet:right-[120px] right-[16px] top-[140px] w-[40px] h-[40px] animate-twinkle z-10 pointer-events-none">
-          <Image
+          <FallbackImage
             src="/images/deco/deco_outline_white_star.png"
             alt="outline white star"
             fill
@@ -154,7 +160,7 @@ const HeroSection = () => {
 
         {/* 별 */}
         <div className="hero-star absolute right-[60px] top-[220px] w-[28px] h-[28px] animate-twinkle [animation-delay:.6s] z-10 pointer-events-none">
-          <Image
+          <FallbackImage
             src="/images/deco/deco_white_star.png"
             alt="white star"
             fill
@@ -164,7 +170,7 @@ const HeroSection = () => {
 
         {/* 별 */}
         <div className="hero-star absolute tablet:left-[80px] left-[16px] top-[200px] w-[32px] h-[32px] animate-twinkle [animation-delay:1.1s] z-10 pointer-events-none">
-          <Image
+          <FallbackImage
             src="/images/deco/deco_yellow_star.png"
             alt="yellow star"
             fill

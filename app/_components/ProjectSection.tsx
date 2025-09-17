@@ -5,6 +5,7 @@ import { PROJECTS } from '@/constants/project';
 import ProjectModal from './ProjectModal';
 import { useEffect, useRef } from 'react';
 import { importScrollTrigger } from '@/lib/utils';
+import FallbackImage from '@/components/shared/FallbackImage';
 
 const ProjectSection = () => {
   const [openKey, setOpenKey] = useState<string | null>(null);
@@ -70,7 +71,7 @@ const ProjectSection = () => {
           >
             {/* 썸네일 */}
             <div className="rounded-[12px] overflow-hidden relative aspect-[325.33/220]">
-              <Image src={p.thumbnail} alt={p.name} fill className="object-cover" />
+              <FallbackImage src={p.thumbnail} alt={p.name} fill className="object-cover" />
             </div>
 
             <div className="px-[12px] flex flex-col gap-[12px]">
