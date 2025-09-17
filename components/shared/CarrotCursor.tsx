@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import FallbackImage from '@/components/shared/FallbackImage';
 
 const CarrotCursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const node = cursorRef.current;
@@ -15,6 +16,13 @@ const CarrotCursor = () => {
       const x = e.clientX;
       const y = e.clientY;
       node.style.transform = `translate(${x}px, ${y}px)`;
+
+      // 마우스 위치에서 호버 가능한 요소 확인
+      const elementBelow = document.elementFromPoint(x, y);
+      if (elementBelow) {
+        const isHoverable = elementBelow.closest('.cursor-pointer') !== null;
+        setIsHovering(isHoverable);
+      }
     };
 
     // 커서 표시
@@ -54,11 +62,11 @@ const CarrotCursor = () => {
       style={{ width: 32, height: 32 }}
     >
       <FallbackImage
-        src="/images/deco/carrot.png"
+        src={isHovering ? '/images/deco/carrot_hover.png' : '/images/deco/carrot.png'}
         alt="당근 커서"
         width={32}
         height={32}
-        className="select-none"
+        className="select-none transition-all duration-200 ease-in-out"
         style={{ imageRendering: 'auto' }}
       />
     </div>
