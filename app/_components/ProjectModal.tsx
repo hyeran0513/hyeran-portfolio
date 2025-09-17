@@ -39,7 +39,7 @@ export default function ProjectModal({
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className="body-3 px-[12px] py-[8px] rounded-[8px] bg-primary text-white hover:opacity-90"
+              className="body-3 px-[12px] py-[8px] rounded-[8px] bg-primary text-white hover:opacity-90 cursor-pointer"
             >
               프로젝트로 이동하기
             </a>

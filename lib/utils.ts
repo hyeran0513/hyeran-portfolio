@@ -24,9 +24,9 @@ export const importScrollTrigger = async (gsapInstance?: unknown) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (gsapLib as any).registerPlugin(ScrollTrigger);
   }
-  return { 
+  return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    gsap: gsapLib as any, 
-    ScrollTrigger 
+    gsap: gsapLib as any,
+    ScrollTrigger,
   } as const;
 };

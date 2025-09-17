@@ -21,7 +21,7 @@ const TopButton = () => {
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        
+
         // 푸터가 화면 하단에서 20px 이내에 있으면 푸터가 보이는 것으로 간주
         setIsFooterVisible(footerRect.top <= windowHeight - 20);
       }
@@ -52,9 +52,9 @@ const TopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed ${buttonPosition} right-[32px] z-50 bg-white border border-border-primary rounded-full p-[12px] shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-        isVisible 
-          ? 'opacity-100 translate-y-0 scale-100' 
+      className={`fixed ${buttonPosition} right-[32px] z-50 bg-white border border-border-primary rounded-full p-[12px] shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer ${
+        isVisible
+          ? 'opacity-100 translate-y-0 scale-100'
           : 'opacity-0 translate-y-2 scale-95 pointer-events-none'
       }`}
       aria-label="맨 위로 이동"

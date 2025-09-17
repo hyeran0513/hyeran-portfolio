@@ -32,8 +32,8 @@ const NavigationLinks = ({ isMobile = false, onLinkClick }: NavigationLinksProps
   };
 
   const linkClass = isMobile
-    ? 'px-[8px] py-[6px] block hover:bg-background-secondary rounded-[4px] transition-colors'
-    : 'px-[8px] hover:bg-background-secondary rounded-[4px] transition-colors';
+    ? 'px-[8px] py-[6px] block hover:bg-background-secondary rounded-[4px] transition-colors cursor-pointer'
+    : 'px-[8px] hover:bg-background-secondary rounded-[4px] transition-colors cursor-pointer';
 
   return (
     <>
