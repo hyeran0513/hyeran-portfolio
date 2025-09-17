@@ -1,7 +1,14 @@
+'use client';
 import Image from 'next/image';
+import { useMemo, useState } from 'react';
 import { PROJECTS } from '@/constants/project';
+import ProjectModal from './ProjectModal';
 
 const ProjectSection = () => {
+  const [openKey, setOpenKey] = useState<string | null>(null);
+
+  const selected = useMemo(() => PROJECTS.find((p) => p.key === openKey), [openKey]);
+
   return (
     <div className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]">
       {/* 제목 */}
@@ -11,7 +18,11 @@ const ProjectSection = () => {
 
       <div className="grid tablet:grid-cols-3 grid-cols-1 tablet:gap-[48px] gap-[24px]">
         {PROJECTS.map((p) => (
-          <div key={p.key} className="flex flex-col gap-[24px]">
+          <div
+            key={p.key}
+            className="flex flex-col gap-[24px] cursor-pointer"
+            onClick={() => setOpenKey(p.key)}
+          >
             {/* 썸네일 */}
             <div className="rounded-[12px] overflow-hidden relative aspect-[325.33/220]">
               <Image src={p.thumbnail} alt={p.name} fill className="object-cover" />
@@ -36,6 +47,9 @@ const ProjectSection = () => {
           </div>
         ))}
       </div>
+
+      {/* 프로젝트 모달 */}
+      <ProjectModal project={selected} open={!!selected} onClose={() => setOpenKey(null)} />
     </div>
   );
 };

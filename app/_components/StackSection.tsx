@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { STACKS } from '@/constants/stack';
-import CircularProgress from '@/components/ui/CircularProgress';
+import CircularProgress from '@/components/shared/CircularProgress';
 
 const StackSection = () => {
   return (
