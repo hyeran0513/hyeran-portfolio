@@ -66,7 +66,7 @@ const config = {
         ".hero-3": {
           fontFamily: "var(--font-pretendard)",
           fontWeight: "800",
-          fontSize: "40px",
+          fontSize: "34px",
           lineHeight: "150%",
           letterSpacing: "0%",
         },

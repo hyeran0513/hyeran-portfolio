@@ -3,24 +3,68 @@ import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { PROJECTS } from '@/constants/project';
 import ProjectModal from './ProjectModal';
+import { useEffect, useRef } from 'react';
+import { importScrollTrigger } from '@/lib/utils';
 
 const ProjectSection = () => {
   const [openKey, setOpenKey] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const selected = useMemo(() => PROJECTS.find((p) => p.key === openKey), [openKey]);
 
+  useEffect(() => {
+    let ctx: any;
+    (async () => {
+      const mod = await importScrollTrigger();
+      if (!mod || !sectionRef.current) return;
+      const { gsap } = mod;
+      ctx = gsap.context(() => {
+        gsap.from('.project-heading', {
+          scrollTrigger: {
+            trigger: '.project-heading',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+          y: 24,
+          autoAlpha: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+        });
+
+        gsap.from('.project-card', {
+          scrollTrigger: {
+            trigger: '.project-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+          y: 24,
+          autoAlpha: 0,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: 'power3.out',
+        });
+      }, sectionRef);
+    })();
+    return () => ctx && ctx.revert();
+  }, []);
+
   return (
-    <div className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]">
+    <div
+      ref={sectionRef}
+      className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
+    >
       {/* 제목 */}
       <div className="flex flex-col gap-[16px]">
-        <h2 className="tablet:heading-2 heading-3">프로젝트</h2>
+        <h2 className="project-heading tablet:heading-2 heading-3">프로젝트</h2>
       </div>
 
-      <div className="grid tablet:grid-cols-3 grid-cols-1 tablet:gap-[48px] gap-[24px]">
+      <div className="project-grid grid tablet:grid-cols-3 grid-cols-1 tablet:gap-[48px] gap-[24px]">
         {PROJECTS.map((p) => (
           <div
             key={p.key}
-            className="flex flex-col gap-[24px] cursor-pointer"
+            className="project-card flex flex-col gap-[24px] cursor-pointer"
             onClick={() => setOpenKey(p.key)}
           >
             {/* 썸네일 */}

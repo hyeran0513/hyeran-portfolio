@@ -1,17 +1,63 @@
+'use client';
+
 import Image from 'next/image';
 import { ACTIVITIES } from '@/constants/activity';
+import { useEffect, useRef } from 'react';
+import { importScrollTrigger } from '@/lib/utils';
 
 const ActicitySection = () => {
-  return (
-    <div className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]">
-      {/* 제목 */}
-      <h2 className="tablet:heading-2 heading-3">활동</h2>
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
-      <div className="grid tablet:grid-cols-4 grid-cols-1 gap-[24px]">
+  useEffect(() => {
+    let ctx: any;
+    (async () => {
+      const mod = await importScrollTrigger();
+      if (!mod || !sectionRef.current) return;
+      const { gsap } = mod;
+      ctx = gsap.context(() => {
+        gsap.from('.activity-heading', {
+          scrollTrigger: {
+            trigger: '.activity-heading',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+          y: 24,
+          autoAlpha: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+        });
+        gsap.from('.activity-card', {
+          scrollTrigger: {
+            trigger: '.activity-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+          y: 24,
+          autoAlpha: 0,
+          duration: 0.6,
+          stagger: 0.06,
+          ease: 'power3.out',
+        });
+      }, sectionRef);
+    })();
+    return () => ctx && ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
+    >
+      {/* 제목 */}
+      <h2 className="activity-heading tablet:heading-2 heading-3">활동</h2>
+
+      <div className="activity-grid grid tablet:grid-cols-4 grid-cols-1 gap-[24px]">
         {ACTIVITIES.map((item) => (
           <div
             key={`${item.title}-${item.period}`}
-            className="bg-background-secondary rounded-[8px] p-[24px] flex flex-col justify-between tablet:aspect-square shadow-sm"
+            className="activity-card bg-background-secondary rounded-[8px] p-[24px] flex flex-col justify-between tablet:aspect-square shadow-sm"
           >
             {/* 로고 */}
             <div className="ml-auto size-[60px] bg-white rounded-full overflow-hidden">
