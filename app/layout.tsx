@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import CarrotCursor from '@/components/shared/CarrotCursor';
 import { SERVICE_URL, SERVICE_NAME, SERVICE_DESCRIPTION } from '@/constants/service';
 
 const FAVICON_URL = '/svg/favicon.svg';
@@ -76,7 +77,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${pretendard.variable}`}>{children}</body>
+      <body className={`${pretendard.variable}`}>
+        {children}
+        <CarrotCursor />
+      </body>
     </html>
   );
 }
