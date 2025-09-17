@@ -1,3 +1,29 @@
+// 개인 프로젝트
+export const PROJECT_HYERAN = {
+  type: '개인 프로젝트' as const,
+  name: '김혜란 포트폴리오',
+  period: '2025.09.17 - 무제한',
+  members: '프론트엔드 1명',
+  description:
+    '저의 개인 포트폴리오 웹사이트입니다. 프론트엔드 개발자로서의 경험과 기술 스택을 보여줍니다.',
+  url: 'https://hyeran-portfolio-nine.vercel.app/',
+  tags: ['반응형', '개인 프로젝트'],
+  stacks: [
+    { name: 'Next.js', logo: '/images/stack/next.png' },
+    { name: 'Tailwind CSS', logo: '/images/stack/tailwindcss.png' },
+    { name: 'GitHub', logo: '/images/stack/github.png' },
+  ],
+  images: [
+    { src: '/images/portfolio/hyeran/hyeran_hero.png', label: '히어로 섹션' },
+    { src: '/images/portfolio/hyeran/hyeran_project.png', label: '프로젝트 섹션' },
+    { src: '/images/portfolio/hyeran/hyeran_project_modal.png', label: '프로젝트 모달' },
+    { src: '/images/portfolio/hyeran/hyeran_stack_activity.png', label: '스택/활동 섹션' },
+    { src: '/images/portfolio/hyeran/hyeran_award.png', label: '수상/자격증 섹션' },
+  ],
+  thumbnail: '/images/thumbnail/hyeran.png',
+  reflection: `Figma로 디자인을 작업하고, Next.js와 Tailwind CSS를 활용하여 웹사이트를 구현했습니다. GSAP을 활용하여 부드러운 애니메이션 효과를 적용했고, 커스텀 커서 및 시선 추적 기능을 구현하여 사용자에게 재미 요소를 보여줄 수 있도록 했습니다. FallbackImage를 활용하여 이미지 로딩 스핀을 통해 사용자가 대기 중인 것을 알 수 있도록 하였고, 탑 버튼을 클릭하면 페이지 상단으로 이동하도록 했습니다. 프로젝트 모달을 통해 프로젝트 상세 정보를 확인할 수 있도록 했으며, 화면 미리 보기 클릭 시 확대되는 효과를 통해 사용자가 프로젝트를 더 자세히 확인할 수 있도록 했습니다. lcp 최적화를 위해 이미지 크기를 조절하고, lazy loading을 적용하여 성능을 최적화했습니다. 직접 디자인을 하면서 Figma 툴에 대해 더 익힐 수 있었고, 사용자 측면에서 편리하게 사용할 수 있도록 고민하는 과정이 재미있었습니다.`,
+} as const;
+
 // 여기G
 export const PROJECT_LOGY = {
   type: '팀 프로젝트' as const,
@@ -164,7 +190,6 @@ export const PROJECT_MAP = {
   period: '2024.07 - 2024.09',
   members: '프론트엔드 1명 / 백엔드 3명 / 기획자 1명 / 디자이너 1명',
   description: '지사 관리, 정산 신청, GFSR, 활동 입력 등 다양한 매니저 활동지원 시스템입니다.',
-  url: 'https://tip.metlife.co.kr/memo',
   tags: ['반응형', '기업 프로젝트'],
   stacks: [
     { name: 'Next.js', logo: '/images/stack/next.png' },
@@ -214,5 +239,9 @@ export const PROJECTS = [
   {
     key: 'map',
     ...PROJECT_MAP,
+  },
+  {
+    key: 'hyeran',
+    ...PROJECT_HYERAN,
   },
 ] as const;
