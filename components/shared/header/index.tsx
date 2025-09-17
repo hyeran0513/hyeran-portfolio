@@ -10,7 +10,7 @@ const Header = () => {
         {/* GNB */}
         <div className="flex gap-[8px]">
           <Link href="/" className="px-[8px]">
-            포트폴리오
+            프로젝트
           </Link>
           <Link href="/" className="px-[8px]">
             스택
