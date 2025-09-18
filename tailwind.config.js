@@ -185,6 +185,16 @@ const config = {
           lineHeight: "150%",
           letterSpacing: "0%",
         },
+        ".word-break-keep": {
+          "word-break": "keep-all",
+          "word-wrap": "break-word",
+          "overflow-wrap": "break-word",
+        },
+        ".word-break-normal": {
+          "word-break": "normal",
+          "word-wrap": "normal",
+          "overflow-wrap": "normal",
+        },
       });
     }),
   ],

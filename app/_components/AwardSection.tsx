@@ -54,7 +54,7 @@ const AwardSection = () => {
         className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
       >
         {/* 제목 */}
-        <h2 className="award-heading tablet:heading-2 heading-3">상장/자격증</h2>
+        <h2 className="award-heading tablet:heading-2 heading-3 word-break-keep">상장/자격증</h2>
 
         <div className="award-grid grid tablet:grid-cols-4 grid-cols-1 gap-[24px]">
           {AWARDS.map((item) => (
@@ -65,7 +65,7 @@ const AwardSection = () => {
               {/* 타입 */}
               <div
                 className={cn(
-                  'self-start inline-block py-[6px] px-[8px] rounded-full body-4 text-white',
+                  'self-start inline-block py-[6px] px-[8px] rounded-full body-4 text-white word-break-keep',
                   item.type === 'award' ? 'bg-primary' : 'bg-secondary',
                 )}
               >
@@ -74,10 +74,10 @@ const AwardSection = () => {
 
               <div className="flex flex-col gap-[8px]">
                 {/* 제목 */}
-                <p className="heading-5">{item.title}</p>
+                <p className="heading-5 word-break-keep">{item.title}</p>
 
                 {/* 기간 */}
-                <p className="body-3 text-text-secondary">{item.period}</p>
+                <p className="body-3 text-text-secondary word-break-keep">{item.period}</p>
               </div>
             </div>
           ))}

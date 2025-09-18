@@ -62,4 +62,11 @@ a {
     --text-secondary: #757575;
     --text-tertiary: #B3B3B3;
   }
+
+  /* 텍스트 단어 단위 줄바꿈 설정 */
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    word-break: keep-all;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 }

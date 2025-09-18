@@ -36,7 +36,7 @@ const Header = () => {
       <header className="fixed top-0 inset-x-0 z-[100] border-b border-border-primary bg-white">
         <div className="max-w-[1200px] mx-auto tablet:h-[96px] h-[56px] web:px-[64px] tablet:px-[32px] px-[16px] flex justify-between items-center">
           {/* 로고 */}
-          <div className="heading-3">Hyeran&apos;s Portfolio</div>
+          <div className="heading-3 word-break-keep">Hyeran&apos;s Portfolio</div>
 
           {/* 데스크톱/태블릿 GNB */}
           <nav className="hidden tablet:flex gap-[8px] items-center" aria-label="주요 메뉴">

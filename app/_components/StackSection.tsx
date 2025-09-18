@@ -55,7 +55,7 @@ const StackSection = () => {
         className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
       >
         {/* 제목 */}
-        <h2 className="stack-heading tablet:heading-2 heading-3">스택</h2>
+        <h2 className="stack-heading tablet:heading-2 heading-3 word-break-keep">스택</h2>
 
         <div className="stack-grid grid tablet:grid-cols-4 grid-cols-2 tablet:gap-[24px] gap-[16px]">
           {STACKS.map((item) => {
@@ -69,12 +69,14 @@ const StackSection = () => {
                   <Image src={item.logo} alt={item.name} width={40} height={40} />
 
                   {/* 스택 이름 */}
-                  <p className="body-3 text-text-secondary">{item.name}</p>
+                  <p className="body-3 text-text-secondary word-break-keep">{item.name}</p>
                 </div>
 
                 {/* 진행률 */}
                 <CircularProgress percent={item.percent} size={80} strokeWidth={12} innerSize={60}>
-                  <span className="heading-6 text-text-secondary">{item.percent}%</span>
+                  <span className="heading-6 text-text-secondary word-break-keep">
+                    {item.percent}%
+                  </span>
                 </CircularProgress>
               </div>
             );

@@ -37,20 +37,32 @@ const NavigationLinks = ({ isMobile = false, onLinkClick }: NavigationLinksProps
 
   return (
     <>
-      <Link href="#projects" className={linkClass} onClick={(e) => handleLinkClick(e, 'projects')}>
+      <Link
+        href="#projects"
+        className={`${linkClass} word-break-keep`}
+        onClick={(e) => handleLinkClick(e, 'projects')}
+      >
         프로젝트
       </Link>
-      <Link href="#stack" className={linkClass} onClick={(e) => handleLinkClick(e, 'stack')}>
+      <Link
+        href="#stack"
+        className={`${linkClass} word-break-keep`}
+        onClick={(e) => handleLinkClick(e, 'stack')}
+      >
         스택
       </Link>
       <Link
         href="#activities"
-        className={linkClass}
+        className={`${linkClass} word-break-keep`}
         onClick={(e) => handleLinkClick(e, 'activities')}
       >
         활동
       </Link>
-      <Link href="#awards" className={linkClass} onClick={(e) => handleLinkClick(e, 'awards')}>
+      <Link
+        href="#awards"
+        className={`${linkClass} word-break-keep`}
+        onClick={(e) => handleLinkClick(e, 'awards')}
+      >
         상장/자격증
       </Link>
     </>

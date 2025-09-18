@@ -54,7 +54,7 @@ const ActicitySection = () => {
       className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
     >
       {/* 제목 */}
-      <h2 className="activity-heading tablet:heading-2 heading-3">활동</h2>
+      <h2 className="activity-heading tablet:heading-2 heading-3 word-break-keep">활동</h2>
 
       <div className="activity-grid grid tablet:grid-cols-4 grid-cols-1 gap-[24px]">
         {ACTIVITIES.map((item) => (
@@ -69,13 +69,15 @@ const ActicitySection = () => {
 
             <div className="flex flex-col gap-[8px]">
               {/* 제목 */}
-              <p className="heading-5">{item.title}</p>
+              <p className="heading-5 word-break-keep">{item.title}</p>
 
               {/* 설명 */}
-              <p className="body-3 text-text-secondary whitespace-pre-line">{item.description}</p>
+              <p className="body-3 text-text-secondary whitespace-pre-line word-break-keep">
+                {item.description}
+              </p>
 
               {/* 기간 */}
-              <p className="body-3 text-text-secondary">{item.period}</p>
+              <p className="body-3 text-text-secondary word-break-keep">{item.period}</p>
             </div>
           </div>
         ))}

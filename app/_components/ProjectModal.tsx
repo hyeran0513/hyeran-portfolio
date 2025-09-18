@@ -39,7 +39,7 @@ export default function ProjectModal({
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className="body-3 px-[12px] py-[8px] rounded-[8px] bg-primary text-white hover:opacity-90 cursor-pointer"
+              className="body-3 px-[12px] py-[8px] rounded-[8px] bg-primary text-white hover:opacity-90 cursor-pointer word-break-keep"
             >
               프로젝트로 이동하기
             </a>
@@ -56,22 +56,26 @@ export default function ProjectModal({
 
         {/* 프로젝트 정보 */}
         <section className="flex flex-col gap-[8px]">
-          <h4 className="heading-4">프로젝트 정보</h4>
-          <p className="body-2 whitespace-pre-line text-text-secondary">{project.description}</p>
+          <h4 className="heading-4 word-break-keep">프로젝트 정보</h4>
+          <p className="body-2 whitespace-pre-line text-text-secondary word-break-keep">
+            {project.description}
+          </p>
         </section>
 
         {/* 느낀점 */}
         {project.reflection ? (
           <section className="flex flex-col gap-[8px]">
-            <h4 className="heading-4">느낀점</h4>
-            <p className="body-2 whitespace-pre-line text-text-secondary">{project.reflection}</p>
+            <h4 className="heading-4 word-break-keep">느낀점</h4>
+            <p className="body-2 whitespace-pre-line text-text-secondary word-break-keep">
+              {project.reflection}
+            </p>
           </section>
         ) : null}
 
         {/* 화면 미리보기 */}
         {project.images?.length ? (
           <section className="flex flex-col gap-[8px]">
-            <h4 className="heading-4">화면 미리보기</h4>
+            <h4 className="heading-4 word-break-keep">화면 미리보기</h4>
             <PreviewGallery images={project.images} />
           </section>
         ) : null}

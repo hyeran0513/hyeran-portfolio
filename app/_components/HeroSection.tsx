@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section className="bg-primary tablet:h-[630px] h-[500px]">
       <div className="max-w-[1200px] mx-auto h-full relative flex justify-center pt-[94px] overflow-hidden">
         {/* 텍스트 */}
-        <div className="hero-title text-white web:hero-1 tablet:hero-2 hero-3 text-center relative z-20">
+        <div className="hero-title text-white web:hero-1 tablet:hero-2 hero-3 text-center relative z-20 word-break-keep">
           김혜란 프론트엔드 <br /> 포트폴리오
         </div>
 

@@ -74,7 +74,7 @@ const ProjectSection = () => {
     >
       {/* 제목 */}
       <div className="flex flex-col gap-[16px]">
-        <h2 className="project-heading tablet:heading-2 heading-3">프로젝트</h2>
+        <h2 className="project-heading tablet:heading-2 heading-3 word-break-keep">프로젝트</h2>
         <Tabs items={tabItems} value={activeTab} onValueChange={setActiveTab} />
       </div>
 
@@ -97,15 +97,20 @@ const ProjectSection = () => {
 
             <div className="px-[12px] flex flex-col gap-[12px]">
               {/* 제목 */}
-              <p className="heading-3">{p.name}</p>
+              <p className="heading-3 word-break-keep">{p.name}</p>
 
               {/* 설명 */}
-              <p className="body-2 line-clamp-2 text-text-secondary">{p.description}</p>
+              <p className="body-2 line-clamp-2 text-text-secondary word-break-keep">
+                {p.description}
+              </p>
 
               {/* 태그 */}
               <div className="flex flex-wrap gap-[4px]">
                 {p.tags.map((tag) => (
-                  <div key={tag} className="bg-background-secondary rounded-[4px] p-[8px] body-3">
+                  <div
+                    key={tag}
+                    className="bg-background-secondary rounded-[4px] p-[8px] body-3 word-break-keep"
+                  >
                     {tag}
                   </div>
                 ))}
