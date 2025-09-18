@@ -63,6 +63,7 @@ export const PROJECT_LOGY = {
       label: '블로그 상세',
     },
     { src: '/images/portfolio/logy/logy_chatbot.png', label: '챗봇' },
+    { src: '/images/portfolio/logy/logy_404_error.png', label: '404 에러 처리' },
   ],
   reflection: `Zustand를 사용하여 회원가입 이전, 다음으로 이동해도 입력한 값이 유지되도록 하고, Zod를 사용하여 유효성 검사를 한 곳에서 처리하여 유지보수가 용이하도록 했습니다. 
   블로그 상세페이지 진입 시, 블로그의 고유 ID가 없으면 404에러가 발생하는데, 이때 사용자에게 안내 화면을 보여주어 오류 상태를 확인할 수 있도록 처리했습니다. 데이터 조회 시, 데이터를 불러오는 중일 땐 간단한 로딩 스피너 대신 스켈레톤 UI를 적용하여 사용자가 데이터를 불러오는 중임을 알 수 있도록 했습니다.
@@ -123,6 +124,7 @@ export const PROJECT_L2U = {
     { src: '/images/portfolio/l2u/l2u_room.png', label: '객실 페이지' },
     { src: '/images/portfolio/l2u/l2u_detail.png', label: '숙소 상세' },
     { src: '/images/portfolio/l2u/l2u_history.png', label: '예약 내역' },
+    { src: '/images/portfolio/l2u/l2u_skeleton.png', label: '스켈레톤 UI' },
     {
       src: '/images/portfolio/l2u/l2u_admin_dashboard.png',
       label: '관리자 대시보드',
