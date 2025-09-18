@@ -26,6 +26,7 @@ const config = {
       },
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
+        gmarketSans: ["var(--font-gmarket-sans)"],
       },
       colors: {
         primary: "var(--primary)",
@@ -49,60 +50,22 @@ const config = {
     tailwindcssAnimate,
     plugin(function ({ addUtilities }) {
       addUtilities({
-        ".will-change-transform": {
-          "will-change": "transform",
-        },
-        ".will-change-auto": {
-          "will-change": "auto",
-        },
-        ".gpu-accelerated": {
-          "transform": "translateZ(0)",
-          "backface-visibility": "hidden",
-          "perspective": "1000px",
-        },
-        ".contain-layout": {
-          "contain": "layout",
-        },
-        ".contain-paint": {
-          "contain": "paint",
-        },
-        ".contain-strict": {
-          "contain": "strict",
-        },
-        ".hero-title": {
-          "font-display": "swap",
-          "contain": "layout style paint",
-          "will-change": "auto",
-          "transform": "translateZ(0)",
-          "backface-visibility": "hidden",
-        },
-        ".hero-character": {
-          "contain": "layout style paint",
-          "will-change": "transform",
-        },
-        ".hero-bg": {
-          "contain": "layout style paint",
-        },
-        ".hero-star": {
-          "contain": "layout style paint",
-          "will-change": "transform",
-        },
         ".hero-1": {
-          fontFamily: "var(--font-pretendard)",
+          fontFamily: "var(--font-gmarket-sans)",
           fontWeight: "800",
           fontSize: "80px",
           lineHeight: "150%",
           letterSpacing: "0%",
         },
         ".hero-2": {
-          fontFamily: "var(--font-pretendard)",
+          fontFamily: "var(--font-gmarket-sans)",
           fontWeight: "800",
           fontSize: "60px",
           lineHeight: "150%",
           letterSpacing: "0%",
         },
         ".hero-3": {
-          fontFamily: "var(--font-pretendard)",
+          fontFamily: "var(--font-gmarket-sans)",
           fontWeight: "800",
           fontSize: "34px",
           lineHeight: "150%",
@@ -184,6 +147,24 @@ const config = {
           fontSize: "12px",
           lineHeight: "150%",
           letterSpacing: "0%",
+        },
+        ".hero-title": {
+          "font-display": "swap",
+          "contain": "layout style paint",
+          "will-change": "auto",
+          "transform": "translateZ(0)",
+          "backface-visibility": "hidden",
+        },
+        ".hero-character": {
+          "contain": "layout style paint",
+          "will-change": "transform",
+        },
+        ".hero-bg": {
+          "contain": "layout style paint",
+        },
+        ".hero-star": {
+          "contain": "layout style paint",
+          "will-change": "transform",
         },
         ".word-break-keep": {
           "word-break": "keep-all",

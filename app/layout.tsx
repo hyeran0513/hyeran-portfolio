@@ -38,6 +38,15 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
+const gmarketSans = localFont({
+  src: [
+    {
+      path: './fonts/GmarketSansBold.woff2',
+    },
+  ],
+  variable: '--font-gmarket-sans',
+});
+
 export const metadata: Metadata = {
   metadataBase: SERVICE_URL ? new URL(SERVICE_URL) : undefined,
   title: SERVICE_NAME,
@@ -77,7 +86,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${pretendard.variable}`}>
+      <body className={`${pretendard.variable} ${gmarketSans.variable} `}>
         {children}
         <CarrotCursor />
       </body>
