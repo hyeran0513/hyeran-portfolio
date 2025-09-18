@@ -3,7 +3,7 @@
 김혜란의 프론트엔드 개발자 포트폴리오 웹사이트입니다. <br />
 Next.js 15와 TypeScript를 기반으로 제작되었으며, 다양한 프로젝트 경험과 기술 스택을 보여줍니다.
 
-![Animation2](https://github.com/user-attachments/assets/cf6c5a94-388b-451a-8532-da4ad4e22e62)
+![Animation2](https://github.com/user-attachments/assets/08851fb4-f41d-475d-b593-daa442f39b26)
 
 ## 🚀 주요 기능
 
@@ -52,7 +52,14 @@ hyeran-portfolio/
 │   │   ├── ProjectModal.tsx      # 프로젝트 모달
 │   │   ├── ProjectSection.tsx    # 프로젝트 섹션
 │   │   └── StackSection.tsx      # 기술 스택 섹션
-│   ├── fonts/                    # 커스텀 폰트 (Pretendard)
+│   ├── favicon.ico               # 파비콘
+│   ├── fonts/                    # 커스텀 폰트
+│   │   ├── GmarketSansBold.woff2
+│   │   ├── Pretendard-Bold.woff2
+│   │   ├── Pretendard-ExtraBold.woff2
+│   │   ├── Pretendard-Medium.woff2
+│   │   ├── Pretendard-Regular.woff2
+│   │   └── Pretendard-SemiBold.woff2
 │   ├── globals.css               # 전역 스타일
 │   ├── layout.tsx                # 루트 레이아웃
 │   └── page.tsx                  # 메인 페이지
@@ -70,7 +77,8 @@ hyeran-portfolio/
 │   │       └── NavigationLinks.tsx
 │   └── ui/                       # UI 컴포넌트
 │       ├── modal.tsx             # 모달 컴포넌트
-│       └── spinner.tsx           # 스피너 컴포넌트
+│       ├── spinner.tsx           # 스피너 컴포넌트
+│       └── tabs.tsx              # 탭 컴포넌트
 ├── constants/                    # 상수 데이터
 │   ├── activity.ts               # 활동 데이터
 │   ├── award.ts                  # 수상/자격증 데이터
@@ -86,11 +94,18 @@ hyeran-portfolio/
 │   │   ├── portfolio/            # 프로젝트 이미지
 │   │   ├── stack/                # 기술 스택 로고
 │   │   └── thumbnail/            # 썸네일 이미지
+│   ├── og.png                    # 오픈그래프 이미지
 │   └── svg/                      # SVG 아이콘
+│       └── favicon.svg
+├── eslint.config.mjs             # ESLint 설정
+├── next-env.d.ts                 # Next.js 타입 선언
+├── next.config.ts                # Next.js 설정
 ├── package.json                  # 프로젝트 의존성
+├── postcss.config.js             # PostCSS 설정
 ├── tailwind.config.js            # Tailwind CSS 설정
 ├── tsconfig.json                 # TypeScript 설정
-└── next.config.ts                # Next.js 설정
+├── yarn.lock                     # 의존성 잠금 파일
+└── node_modules/                 # 의존성 모듈
 ```
 
 ## 🌟 배포
@@ -101,4 +116,5 @@ hyeran-portfolio/
 
 ## 🎬 화면 전체 미리보기
 
-<img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/71460b35-2ec2-408f-a0dc-613c2df500ca" />
+<img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/9a2e00f7-df1f-4395-be16-f8d9e3c104a1" />
+
