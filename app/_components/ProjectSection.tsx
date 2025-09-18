@@ -6,12 +6,25 @@ import ProjectModal from './ProjectModal';
 import { useEffect, useRef } from 'react';
 import { importScrollTrigger } from '@/lib/utils';
 import FallbackImage from '@/components/shared/FallbackImage';
+import Tabs from '@/components/ui/tabs';
 
 const ProjectSection = () => {
   const [openKey, setOpenKey] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<string>('전체');
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const selected = useMemo(() => PROJECTS.find((p) => p.key === openKey), [openKey]);
+
+  const filteredProjects = useMemo(() => {
+    if (activeTab === '전체') return PROJECTS;
+    return PROJECTS.filter((project) => project.type === activeTab);
+  }, [activeTab]);
+
+  const tabItems = [
+    { value: '전체', label: '전체' },
+    { value: '개인 프로젝트', label: '개인 프로젝트' },
+    { value: '팀 프로젝트', label: '팀 프로젝트' },
+  ];
 
   useEffect(() => {
     let ctx: { revert: () => void } | null = null;
@@ -57,15 +70,16 @@ const ProjectSection = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] py-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
+      className="max-w-[1200px] mx-auto web:p-[64px] tablet:py-[64px] tablet:px-[32px] pt-[24px] pb-[48px] px-[16px] flex flex-col tablet:gap-[48px] gap-[24px]"
     >
       {/* 제목 */}
       <div className="flex flex-col gap-[16px]">
         <h2 className="project-heading tablet:heading-2 heading-3">프로젝트</h2>
+        <Tabs items={tabItems} value={activeTab} onValueChange={setActiveTab} />
       </div>
 
       <div className="project-grid grid tablet:grid-cols-3 grid-cols-1 tablet:gap-[48px] gap-[24px]">
-        {PROJECTS.map((p) => (
+        {filteredProjects.map((p) => (
           <div
             key={p.key}
             className="project-card flex flex-col gap-[24px] cursor-pointer"
