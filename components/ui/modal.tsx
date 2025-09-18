@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
@@ -65,9 +65,12 @@ export default function Modal({
 }: ModalProps) {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const [isMounted, setIsMounted] = useState<boolean>(open);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const TRANSITION_MS = 250;
 
   // 바디 스크롤 잠금
-  useBodyScrollLock(open);
+  useBodyScrollLock(isMounted);
 
   // ESC 키로 닫기
   useEffect(() => {
@@ -87,15 +90,35 @@ export default function Modal({
     }
   }, [open]);
 
+  // 마운트/언마운트 및 가시 상태 전환
+  useEffect(() => {
+    if (open) {
+      setIsMounted(true);
+      const id = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(id);
+    }
+
+    // 닫힐 때 애니메이션 표시 후 언마운트
+    setIsVisible(false);
+    const timeout = setTimeout(() => setIsMounted(false), TRANSITION_MS);
+    return () => clearTimeout(timeout);
+  }, [open]);
+
   if (typeof window === 'undefined') return null;
   const container = document.body;
-  if (!open) return null;
+  if (!isMounted) return null;
 
   return createPortal(
     <div
       ref={overlayRef}
       aria-hidden
-      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 backdrop-blur-[1px]"
+      className={
+        `fixed inset-0 z-[1000] flex items-center justify-center ` +
+        (fullScreen ? 'bg-transparent' : 'bg-black/50') +
+        ' backdrop-blur-[1px] ' +
+        `transition-opacity duration-300 ease-out ` +
+        (isVisible ? 'opacity-100' : 'opacity-0')
+      }
       onMouseDown={(e) => {
         if (e.target === overlayRef.current) onClose();
       }}
@@ -106,9 +129,16 @@ export default function Modal({
         aria-modal="true"
         tabIndex={-1}
         className={
-          fullScreen
-            ? 'bg-black text-white rounded-none shadow-none w-screen h-screen max-w-none max-h-none overflow-hidden flex flex-col outline-none focus:outline-none focus-visible:outline-none'
-            : 'bg-white dark:bg-background-primary text-text-primary rounded-[12px] shadow-xl w-[92vw] tablet:w-[800px] max-w-[1000px] max-h-[86vh] overflow-hidden flex flex-col outline-none focus:outline-none focus-visible:outline-none'
+          (fullScreen
+            ? 'bg-transparent text-white rounded-none shadow-none w-screen h-screen max-w-none max-h-none '
+            : 'bg-white dark:bg-background-primary text-text-primary rounded-[12px] shadow-xl w-[92vw] tablet:w-[800px] max-w-[1000px] max-h-[86vh] ') +
+          'overflow-hidden flex flex-col outline-none focus:outline-none focus-visible:outline-none ' +
+          'transform transition-[transform,opacity] duration-300 ease-out ' +
+          (isVisible
+            ? 'opacity-100 scale-100 translate-y-0'
+            : fullScreen
+              ? 'opacity-0 scale-85 translate-y-4'
+              : 'opacity-0 scale-95 translate-y-2')
         }
         onMouseDown={(e) => e.stopPropagation()}
       >

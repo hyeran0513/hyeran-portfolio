@@ -50,12 +50,7 @@ export default function PreviewGallery({ images }: { images: ReadonlyArray<Previ
       <Modal open={!!zoomSrc} onClose={() => setZoomSrc(null)} fullScreen>
         {zoomSrc ? (
           <div className="relative w-full h-full">
-            <FallbackImage
-              src={zoomSrc}
-              alt="확대 이미지"
-              fill
-              className="object-contain bg-black"
-            />
+            <FallbackImage src={zoomSrc} alt="확대 이미지" fill className="object-contain" />
           </div>
         ) : null}
       </Modal>
