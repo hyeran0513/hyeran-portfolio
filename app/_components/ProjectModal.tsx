@@ -10,6 +10,8 @@ type Project = {
   name: string; // 프로젝트 이름
   period?: string; // 기간
   members?: string; // 인원
+  role?: string; // 역할
+  contribution?: string; // 기여도
   description: string; // 설명
   url?: string; // 링크
   images?: ReadonlyArray<{ src: string; label?: string }>; // 이미지
@@ -48,10 +50,12 @@ export default function ProjectModal({
       }
     >
       <div className="flex flex-col tablet:gap-[48px] gap-[24px]">
-        {/* 기간, 인원 */}
+        {/* 기간, 인원, 역할, 기여도 */}
         <div className="grid tablet:grid-cols-2 grid-cols-1 gap-[12px]">
           <InfoRow label="기간" value={project.period} />
           <InfoRow label="인원" value={project.members} />
+          <InfoRow label="역할" value={project.role} />
+          <InfoRow label="기여도" value={project.contribution} />
         </div>
 
         {/* 프로젝트 정보 */}
