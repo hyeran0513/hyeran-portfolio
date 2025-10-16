@@ -1,29 +1,29 @@
 // 개인 프로젝트
-// export const PROJECT_HYERAN = {
-//   type: '개인 프로젝트' as const,
-//   name: '김혜란 포트폴리오',
-//   period: '2025.09.17 - 현재',
-//   members: '프론트엔드 1명',
-//   role: '프론트엔드 / 기획 / 디자인',
-//   contribution: '100%',
-//   description: '개인 포트폴리오 웹사이트로, 제가 프론트엔드로서 쌓아온 경험들을 소개합니다.',
-//   url: 'https://hyeran-portfolio-nine.vercel.app/',
-//   tags: ['반응형', '개인 프로젝트'],
-//   stacks: [
-//     { name: 'Next.js', logo: '/images/stack/next.png' },
-//     { name: 'Tailwind CSS', logo: '/images/stack/tailwindcss.png' },
-//     { name: 'GitHub', logo: '/images/stack/github.png' },
-//   ],
-//   images: [
-//     { src: '/images/portfolio/hyeran/hyeran_hero.png', label: '히어로 섹션' },
-//     { src: '/images/portfolio/hyeran/hyeran_project.png', label: '프로젝트 섹션' },
-//     { src: '/images/portfolio/hyeran/hyeran_project_modal.png', label: '프로젝트 모달' },
-//     { src: '/images/portfolio/hyeran/hyeran_stack_activity.png', label: '스택/활동 섹션' },
-//     { src: '/images/portfolio/hyeran/hyeran_award.png', label: '수상/자격증 섹션' },
-//   ],
-//   thumbnail: '/images/thumbnail/hyeran.png',
-//   reflection: `프론트엔드 개발을 넘어, UI/UX기획부터 디자인까지 직접 진행했습니다.\n\n - 개발툴: Next.js와 Tailwind CSS\n - 인터랙션: GSAP 애니메이션, 커스텀 커서\n - 사용성: 프로젝트 모달, 이미지 확대 효과, FallbackImage\n - 성능 최적화: 이미지 lazy loading, LCP 개선 그동안 터득한 기술 및 경험을 바탕으로 사용자 친화적인 웹사이트를 만들었습니다.\n\n 사용자 관점에서 친숙하고 편리한 경험을 제공하기 위해 끊임없이 고민하는 개발자로 성장하고 싶습니다.`,
-// } as const;
+export const PROJECT_HYERAN = {
+  type: '개인 프로젝트' as const,
+  name: '김혜란 포트폴리오',
+  period: '2025.09.17 - 현재',
+  members: '프론트엔드 1명',
+  role: '프론트엔드 / 기획 / 디자인',
+  contribution: '100%',
+  description: '개인 포트폴리오 웹사이트로, 제가 프론트엔드로서 쌓아온 경험들을 소개합니다.',
+  url: 'https://hyeran-portfolio-nine.vercel.app/',
+  tags: ['반응형', '개인 프로젝트'],
+  stacks: [
+    { name: 'Next.js', logo: '/images/stack/next.png' },
+    { name: 'Tailwind CSS', logo: '/images/stack/tailwindcss.png' },
+    { name: 'GitHub', logo: '/images/stack/github.png' },
+  ],
+  images: [
+    { src: '/images/portfolio/hyeran/hyeran_hero.png', label: '히어로 섹션' },
+    { src: '/images/portfolio/hyeran/hyeran_project.png', label: '프로젝트 섹션' },
+    { src: '/images/portfolio/hyeran/hyeran_project_modal.png', label: '프로젝트 모달' },
+    { src: '/images/portfolio/hyeran/hyeran_stack_activity.png', label: '스택/활동 섹션' },
+    { src: '/images/portfolio/hyeran/hyeran_award.png', label: '수상/자격증 섹션' },
+  ],
+  thumbnail: '/images/thumbnail/hyeran.png',
+  reflection: `프론트엔드 개발을 넘어, UI/UX기획부터 디자인까지 직접 진행했습니다.\n\n - 개발툴: Next.js와 Tailwind CSS\n - 인터랙션: GSAP 애니메이션, 커스텀 커서\n - 사용성: 프로젝트 모달, 이미지 확대 효과, FallbackImage\n - 성능 최적화: 이미지 lazy loading, LCP 개선 그동안 터득한 기술 및 경험을 바탕으로 사용자 친화적인 웹사이트를 만들었습니다.\n\n 사용자 관점에서 친숙하고 편리한 경험을 제공하기 위해 끊임없이 고민하는 개발자로 성장하고 싶습니다.`,
+} as const;
 
 // 여기G
 export const PROJECT_LOGY = {
@@ -239,8 +239,8 @@ export const PROJECTS = [
     key: 'map',
     ...PROJECT_MAP,
   },
-  // {
-  //   key: 'hyeran',
-  //   ...PROJECT_HYERAN,
-  // },
+  {
+    key: 'hyeran',
+    ...PROJECT_HYERAN,
+  },
 ] as const;
