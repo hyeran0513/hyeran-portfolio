@@ -22,10 +22,10 @@ const AwardSection = () => {
             toggleActions: 'play none none none',
             once: true,
           },
-          y: 24,
+          yPercent: 40,
           autoAlpha: 0,
-          duration: 0.6,
-          ease: 'power3.out',
+          duration: 0.5,
+          ease: 'back.out(1.25)',
         });
         gsap.from('.award-card', {
           scrollTrigger: {
@@ -34,11 +34,12 @@ const AwardSection = () => {
             toggleActions: 'play none none none',
             once: true,
           },
-          y: 24,
+          yPercent: 40,
           autoAlpha: 0,
-          duration: 0.6,
-          stagger: 0.06,
-          ease: 'power3.out',
+          duration: 0.5,
+          delay: 0.3,
+          stagger: 0.12,
+          ease: 'back.out(1.25)',
         });
       }, sectionRef);
     })();
@@ -60,7 +61,7 @@ const AwardSection = () => {
           {AWARDS.map((item) => (
             <div
               key={`${item.title}-${item.period}`}
-              className="award-card bg-white rounded-[8px] p-[24px] flex flex-col gap-[24px] justify-between shadow-sm"
+              className="award-card bg-white rounded-[8px] p-[24px] flex flex-col gap-[24px] justify-between shadow-soft"
             >
               {/* 타입 */}
               <div

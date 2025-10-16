@@ -23,10 +23,10 @@ const StackSection = () => {
             toggleActions: 'play none none none',
             once: true,
           },
-          y: 24,
+          yPercent: 40,
           autoAlpha: 0,
-          duration: 0.6,
-          ease: 'power3.out',
+          duration: 0.5,
+          ease: 'back.out(1.25)',
         });
         gsap.from('.stack-card', {
           scrollTrigger: {
@@ -35,11 +35,12 @@ const StackSection = () => {
             toggleActions: 'play none none none',
             once: true,
           },
-          y: 24,
+          yPercent: 40,
           autoAlpha: 0,
-          duration: 0.6,
-          stagger: 0.06,
-          ease: 'power3.out',
+          duration: 0.5,
+          delay: 0.3,
+          stagger: 0.12,
+          ease: 'back.out(1.25)',
         });
       }, sectionRef);
     })();
@@ -62,7 +63,7 @@ const StackSection = () => {
             return (
               <div
                 key={item.name}
-                className="stack-card bg-white p-[24px] rounded-[8px] flex tablet:flex-row flex-col gap-[24px] justify-between items-center shadow-sm"
+                className="stack-card bg-white p-[24px] rounded-[8px] flex tablet:flex-row flex-col gap-[24px] justify-between items-center shadow-soft"
               >
                 <div className="flex flex-col items-center gap-[4px]">
                   {/* 스택 로고 */}

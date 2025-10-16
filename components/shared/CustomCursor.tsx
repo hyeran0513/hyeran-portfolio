@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import FallbackImage from '@/components/shared/FallbackImage';
 
-const CarrotCursor = () => {
+const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -20,7 +20,9 @@ const CarrotCursor = () => {
       // 마우스 위치에서 호버 가능한 요소 확인
       const elementBelow = document.elementFromPoint(x, y);
       if (elementBelow) {
-        const isHoverable = elementBelow.closest('.cursor-pointer') !== null;
+        const hoverableSelector =
+          'a,button,[role="button"],input,textarea,select,label,.cursor-pointer,[data-hoverable="true"]';
+        const isHoverable = !!elementBelow.closest(hoverableSelector);
         setIsHovering(isHoverable);
       }
     };
@@ -62,8 +64,8 @@ const CarrotCursor = () => {
       style={{ width: 32, height: 32 }}
     >
       <FallbackImage
-        src={isHovering ? '/images/deco/carrot_hover.png' : '/images/deco/carrot.png'}
-        alt="당근 커서"
+        src={isHovering ? '/images/deco/cursor_hover.png' : '/images/deco/cursor.png'}
+        alt="커서"
         width={32}
         height={32}
         className="select-none transition-all duration-200 ease-in-out"
@@ -73,4 +75,4 @@ const CarrotCursor = () => {
   );
 };
 
-export default CarrotCursor;
+export default CustomCursor;

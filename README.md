@@ -65,7 +65,7 @@ hyeran-portfolio/
 │   └── page.tsx                  # 메인 페이지
 ├── components/                   # 재사용 가능한 컴포넌트
 │   ├── shared/                   # 공통 컴포넌트
-│   │   ├── CarrotCursor.tsx      # 커스텀 커서
+│   │   ├── CustomCursor.tsx      # 커스텀 커서
 │   │   ├── CircularProgress.tsx  # 원형 프로그레스
 │   │   ├── FallbackImage.tsx     # 이미지 폴백
 │   │   ├── Footer.tsx            # 푸터

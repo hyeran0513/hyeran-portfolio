@@ -40,10 +40,10 @@ const ProjectSection = () => {
             toggleActions: 'play none none none',
             once: true,
           },
-          y: 24,
+          yPercent: 40,
           autoAlpha: 0,
-          duration: 0.6,
-          ease: 'power3.out',
+          duration: 0.5,
+          ease: 'back.out(1.25)',
         });
 
         gsap.from('.project-card', {
@@ -53,11 +53,12 @@ const ProjectSection = () => {
             toggleActions: 'play none none none',
             once: true,
           },
-          y: 24,
+          yPercent: 40,
           autoAlpha: 0,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: 'power3.out',
+          duration: 0.5,
+          delay: 0.3,
+          stagger: 0.14,
+          ease: 'back.out(1.25)',
         });
       }, sectionRef);
     })();

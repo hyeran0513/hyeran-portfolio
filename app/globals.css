@@ -47,20 +47,20 @@ a {
 
 @layer base {
   :root {
-    --primary: #7680D5;
-    --secondary: #80BEEF;
+    --primary: #9F8ECD;
+    --secondary: #C3A6D9;
 
     /* Background */
     --background-primary: #FFFFFF;
-    --background-secondary: #F8F8F8;
+    --background-secondary: #F9F9FB;
 
     /* Border */
-    --border-primary: #D9D9D9;
+    --border-primary: #E8E8E8;
 
     /* Text */
-    --text-primary: #1E1E1E;
-    --text-secondary: #757575;
-    --text-tertiary: #B3B3B3;
+    --text-primary: #222222;
+    --text-secondary: #6A6A6A;
+    --text-tertiary: #9E9E9E;
   }
 
   /* 텍스트 단어 단위 줄바꿈 설정 */

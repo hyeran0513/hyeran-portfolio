@@ -145,8 +145,8 @@ export default function Modal({
         <div
           className={
             fullScreen
-              ? 'flex items-center justify-between gap-[12px] p-[16px]'
-              : 'flex items-center justify-between gap-[12px] p-[16px] border-b border-border-primary'
+              ? 'flex items-center justify-between gap-[12px] tablet:px-[30px] tablet:py-[16px] p-[16px]'
+              : 'flex items-center justify-between gap-[12px] tablet:px-[30px] tablet:py-[16px] p-[16px] border-b border-border-primary'
           }
         >
           {/* 제목, 라벨 */}
@@ -179,11 +179,11 @@ export default function Modal({
           </button>
         </div>
 
-        <div className="p-[16px] overflow-auto flex-1">{children}</div>
+        <div className="tablet:p-[30px] p-[16px] overflow-auto flex-1">{children}</div>
 
         {/* 푸터 */}
         {footer ? (
-          <div className="p-[16px] border-t border-border-primary bg-background-secondary/30">
+          <div className="tablet:px-[30px] tablet:py-[16px] p-[16px] border-t border-border-primary bg-background-secondary/30">
             {footer}
           </div>
         ) : null}
