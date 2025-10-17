@@ -3,7 +3,7 @@
 김혜란의 프론트엔드 개발자 포트폴리오 웹사이트입니다. <br />
 Next.js 15와 TypeScript를 기반으로 제작되었으며, 다양한 프로젝트 경험과 기술 스택을 보여줍니다.
 
-![Animation2](https://github.com/user-attachments/assets/08851fb4-f41d-475d-b593-daa442f39b26)
+<img width="2561" height="1398" alt="hyeran-portfolio-nine vercel app_ (1)" src="https://github.com/user-attachments/assets/59579419-cb77-49b2-bc04-7c6c22270c19" />
 
 ## 🚀 주요 기능
 
@@ -13,7 +13,7 @@ Next.js 15와 TypeScript를 기반으로 제작되었으며, 다양한 프로젝
 
 ### 🎨 인터랙티브 UI/UX
 - GSAP을 활용한 부드러운 애니메이션 효과
-- 커스텀 커서 (당근 커서) 구현
+- 커스텀 커서 구현
 - 스크롤 기반 인터랙션
 
 ### 📋 포트폴리오 섹션
@@ -45,7 +45,6 @@ hyeran-portfolio/
 │   ├── _components/              # 페이지별 컴포넌트
 │   │   ├── ActicitySection.tsx   # 활동 섹션
 │   │   ├── AwardSection.tsx      # 수상/자격증 섹션
-│   │   ├── EyeTracking.tsx       # 시선 추적 컴포넌트
 │   │   ├── HeroSection.tsx       # 히어로 섹션
 │   │   ├── InfoRow.tsx           # 정보 행 컴포넌트
 │   │   ├── PreviewGallery.tsx    # 미리보기 갤러리
@@ -116,5 +115,5 @@ hyeran-portfolio/
 
 ## 🎬 화면 전체 미리보기
 
-<img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/9a2e00f7-df1f-4395-be16-f8d9e3c104a1" />
+<img width="2538" height="5016" alt="hyeran-portfolio-nine vercel app_ (2)" src="https://github.com/user-attachments/assets/46f67146-9aeb-4d4f-9f93-ea1f5009cdc2" />
 
